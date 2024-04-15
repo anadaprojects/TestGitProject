@@ -23,9 +23,7 @@ h1{
 .listOfItems a:hover{
     background-color: aliceblue;
 }
-a{
-    text-decoration: none !important;
-}
+
 ul{
     color: blueviolet;
     font-weight: bolder;
@@ -60,4 +58,70 @@ tbody{
 td{
     padding-left: 5px;
     padding-top: 2px;
+}
+
+b+i{
+    color: red;
+}
+h5+h6{
+   text-decoration: underline;
+}
+p b{
+    text-decoration: dotted;
+    color: blue;
+    background-color: antiquewhite;
+}
+ol li{
+    background-color: blueviolet;
+    color: aliceblue;
+
+}
+ul > li{
+    text-decoration: underline;
+}
+body>p{
+    color: lightcoral;
+}
+
+.firstDiv{
+    height: 150px;
+    width: 300px;
+    position: fixed;
+    top: 15%;
+    left: 70%;
+    background-color: white;
+}
+.thirdDiv{
+    height: 300px;
+    width: 70%;
+    margin-top: 30px;
+    background-color: beige;
+    position: relative;
+    left: 10%;
+}
+.secondDiv{
+    float: left;
+    margin-right: 50px;
+}
+a:link{
+    color: brown;
+}
+a:visited{
+    color: blue;
+}
+a:hover{
+    color: blueviolet;
+    background-color: aliceblue;
+}
+a:active{
+    color: cadetblue;
+}
+ol li:first-child{
+    background-color: blanchedalmond;
+}
+body h1::before{
+    content: 'Hello!';
+}
+.text1 a:after{
+    margin-left: 10px;
 }
