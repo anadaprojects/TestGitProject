@@ -1,40 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-
+    <script src="script.js"></script>
     <title>Presents for everyone</title>
 </head>
 
-<body  link="red" vlink="green" alink="pink" >
- 
-    <h1 style="color: brown; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Вітаємо у нашому магазині подарунків!</h1>
+<body link="red" vlink="green" alink="pink">
+    <script>
+        let userName = prompt("Будь ласка, введіть ваше ім'я:");
+        if (userName) {
+            alert(`Привіт, ${userName}! Ласкаво просимо до нашого магазину подарунків.`);
+        } else {
+            alert("Ласкаво просимо до нашого магазину подарунків.");
+        }
+        let proceed = confirm("Бажаєте побачити наші акційні пропозиції?");
+        if (proceed) {
+            alert("Ось наші акційні пропозиції: ... (тут перелік акцій)");
+        } else {
+            alert("Дякуємо за ваш візит! Звертайтесь ще :)");
+        }
+    </script>
+    <h1>Ласкаво просимо на наш сайт!</h1>
+    <p>Якщо ви хочете покинути сайт, натисніть кнопку нижче.</p>
+
+    <button onclick="confirmExit()">Покинути сайт</button>
+    <script>
+        function Info(LastName, firstName, position = "Web Developer") {
+            alert(`Інформація про розробника:\n\nПрізвище: ${LastName} \nімʼя: ${firstName}\nпосада: ${position})`);
+        }
+        Info("Datsenko", "Anastasiia", "frontend developer");
+    </script>
+
+    <script>
+        function compareStrings(str1, str2) {
+            if (str1 > str2) {
+                alert(`Більший рядок: ${str1}`);
+            } else if (str2 > str1) {
+                alert(`Більший рядок: ${str2}`);
+            } else {
+                alert("Рядки рівні за значенням.");
+            }
+        }
+        compareStrings("apple", "banana");  // Виведе "Більший рядок: banana"
+    </script>
+
+    <script>
+        function changeBackgroundColorFor30Seconds(newColor) {
+            const originalColor = document.body.style.backgroundColor;
+            document.body.style.backgroundColor = newColor;
+            setTimeout(function () {
+                document.body.style.backgroundColor = originalColor;
+            }, 30000); // 30000 мілісекунд = 30 секунд
+        }
+        changeBackgroundColorFor30Seconds('lightblue');
+    </script>
+
+
+    <script>
+        function redirectToNewPageWithConfirmation(url) {
+            const userConfirmed = confirm("Чи бажаєте ви перейти на нову сторінку?");
+            if (userConfirmed) {
+                location.href = url;
+            } else {
+                alert("Перенаправлення скасовано.");
+            }
+        }
+        redirectToNewPageWithConfirmation('https://www.example.com');
+    </script>
+    
+    <h1 style="color: brown; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Вітаємо у нашому
+        магазині подарунків!</h1>
     <p class="text1">
-       <i>У</i>  <b>нашому</b> <i>магазині ви знайдете подарунок на будь-який смак.</i> Ми це <i>гарантуємо</i>! Щоб подивитись чоловічі подарунки натисніть <a href="presentForMen.html">тут</a>,
+        <i>У</i> <b>нашому</b> <i>магазині ви знайдете подарунок на будь-який смак.</i> Ми це <i>гарантуємо</i>! Щоб
+        подивитись чоловічі подарунки натисніть <a href="presentForMen.html">тут</a>,
         щоб переглянути подарунки для жінок натисніть <a href="presentForWomen.html">тут</a>,
         якщо ви у пошуку подарунка для дітей, тисніть <a href="presentForKids.html">сюди</a>!
     </p>
 
     <p id="sales">
-        Також <h5>сьогодні</h5> <h6>у нас знижки на найпопулярніші товари!</h6> Натискайте на те,що сподобалось, щоб переглянути
+        Також
+    <h5>сьогодні</h5>
+    <h6>у нас знижки на найпопулярніші товари!</h6> Натискайте на те,що сподобалось, щоб переглянути
     </p>
 
     <dt>
         <div class="secondDiv">
-       <b>Подарунки на всі смаки</b>
-    </div>
-       
+            <b>Подарунки на всі смаки</b>
+        </div>
+
     </dt>
-    <ul class="listOfItems" >
-      <li type="square" class="links"> <a href="https://images.app.goo.gl/5tbY3W73AYonJwMn9">Фен dyson</a></li>
-      <li  type="circle" class="links"><a href="https://images.app.goo.gl/dsJv5xgkzvnD6din9">Діамантова каблучка</a></li>
-      <li class="links"> <a href="https://images.app.goo.gl/1CsvN61zqdfvkEyp6">iPhone 15 Pro max</a></li>
+    <ul class="listOfItems">
+        <li type="square" class="links"> <a href="https://images.app.goo.gl/5tbY3W73AYonJwMn9">Фен dyson</a></li>
+        <li type="circle" class="links"><a href="https://images.app.goo.gl/dsJv5xgkzvnD6din9">Діамантова каблучка</a>
+        </li>
+        <li class="links"> <a href="https://images.app.goo.gl/1CsvN61zqdfvkEyp6">iPhone 15 Pro max</a></li>
     </ul>
 
     <span>
-     Подарунки на будь-яку суму
+        Подарунки на будь-яку суму
     </span>
     <ol>
         <li>Чохол</li>
@@ -42,13 +109,19 @@
         <li>Шампанське</li>
     </ol>
 
-<div class="thirdDiv">
-    <a target="_blank" href="https://images.app.goo.gl/5tbY3W73AYonJwMn9"><img src="img/400718-01.png.jpeg" height="300px" width="310px" alt=""></a>
-    <a target="_blank" href="https://images.app.goo.gl/dsJv5xgkzvnD6din9"><img src="img/ASSET_MMS_118412240.webp" height="300px" width="320px" alt=""></a>
-    <a target="_blank" href="https://images.app.goo.gl/1CsvN61zqdfvkEyp6"><img src="img/bbbbb-600x600.jpg" height="300px" width="310px" alt=""></a>
-</div>
-<div class="firstDiv">
-    <span>"Знайдіть ідеальний подарунок у нашому магазині! Великий вибір подарунків для будь-якої події та смаку. Від оригінальних іграшок до елегантних аксесуарів - ми маємо все, щоб зробити ваші свята особливими. Заходьте до нас сьогодні та зробіть радість вашим близьким!"</span>
-</div>
+    <div class="thirdDiv">
+        <a target="_blank" href="https://images.app.goo.gl/5tbY3W73AYonJwMn9"><img src="img/400718-01.png.jpeg"
+                height="300px" width="310px" alt=""></a>
+        <a target="_blank" href="https://images.app.goo.gl/dsJv5xgkzvnD6din9"><img src="img/ASSET_MMS_118412240.webp"
+                height="300px" width="320px" alt=""></a>
+        <a target="_blank" href="https://images.app.goo.gl/1CsvN61zqdfvkEyp6"><img src="img/bbbbb-600x600.jpg"
+                height="300px" width="310px" alt=""></a>
+    </div>
+    <div class="firstDiv">
+        <span>"Знайдіть ідеальний подарунок у нашому магазині! Великий вибір подарунків для будь-якої події та смаку.
+            Від оригінальних іграшок до елегантних аксесуарів - ми маємо все, щоб зробити ваші свята особливими.
+            Заходьте до нас сьогодні та зробіть радість вашим близьким!"</span>
+    </div>
 </body>
+
 </html>

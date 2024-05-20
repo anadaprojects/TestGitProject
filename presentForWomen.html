@@ -5,22 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <title>Presents for women</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .highlighted {
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
-    <table cellpadding = "10" style="border: 2px solid black;" cellspacing = "15" align="center" >
-        <colgroup>
-        <col style="width:300px; background-color: beige;" /><col />
-        </colgroup>
-        <thead >
-        <tr><th>Подарунок</th><th>Ціна</th></tr>
-        </thead>
-        <tfoot>
-        <tr><td>Footer 1</td><td>Footer 2</td></tr>
-        </tfoot>
-        <tbody>
-        <tr ><td>Dyson</td><td>35 000</td></tr>
-        <tr><td>Parfume Dior</td><td>12 000</td></tr>
-        </tbody>
-        </table> 
+    <h2>Натисніть кнопку, щоб побачити поточну дату</h2>
+    <button onclick="displayDate()">Вивести дату</button>
+
+    <p id="dateOutput"></p>
+    <script>
+        function displayDate() {
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString();
+            const dateOutput = document.getElementById('dateOutput');
+            dateOutput.textContent = `Поточна дата: ${formattedDate}`;
+        }
+    </script>
+
+   <h2>Натисніть кнопку, щоб змінити колір фону</h2>
+   <button id="colorButton">Змінити колір фону</button>
+   <script>
+       function changeBackgroundColor() {
+           const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+           document.body.style.backgroundColor = randomColor;
+       }
+       const colorButton = document.getElementById('colorButton');
+       colorButton.onclick = changeBackgroundColor;
+   </script>
+ 
+ <h2>Відправити замовлення</h2>
+ <button id="submitOrderButton">Відправити замовлення</button>
+ <script>
+     function confirmOrder() {
+         alert('Ваше замовлення підтверджено!');
+     }
+     const submitOrderButton = document.getElementById('submitOrderButton');
+     submitOrderButton.addEventListener('click', confirmOrder);
+ </script>
+
+<h2>Натисніть кнопку, щоб побачити, на якому елементі спрацював обробник</h2>
+    <button id="testButton">Натисни мене</button>
+    <button id="removeHandlerButton">Видалити обробник</button>
+
+    <script>
+        // Об'єкт, що буде обробником події
+        const eventHandler = {
+            handleEvent(event) {
+                alert(`Подія спрацювала на елементі: ${event.currentTarget.tagName}`);
+            }
+        };
+
+        // Отримання елементів
+        const testButton = document.getElementById('testButton');
+        const removeHandlerButton = document.getElementById('removeHandlerButton');
+
+        // Призначення обробника події через addEventListener
+        testButton.addEventListener('click', eventHandler);
+
+        // Видалення обробника події через removeEventListener
+        removeHandlerButton.addEventListener('click', () => {
+            testButton.removeEventListener('click', eventHandler);
+            alert('Обробник події видалено');
+        });
+    </script>
+
+<h2>Список подарунків</h2>
+<ul id="itemList">
+    <li>Машина</li>
+    <li>Телефон</li>
+    <li>Квартира</li>
+    <li>Відпочинок</li>
+    <li>Дім</li>
+</ul>
+
+<script>
+        document.getElementById('itemList').addEventListener('click', function(event) {
+            const clickedElement = event.target;
+            if(clickedElement.tagName === 'LI') {
+                const allItems = document.querySelectorAll('#itemList li');
+                allItems.forEach(item => {
+                    item.classList.remove('highlighted');
+                });
+                clickedElement.classList.add('highlighted');
+            }
+        });
+</script>
+
+<h2>Меню з атрибутами data-*</h2>
+    <button data-action="save">Зберегти</button>
+    <button data-action="open">Відкрити</button>
+    <button data-action="delete">Видалити</button>
+
+    <script>
+        // Обробник події click для всього меню
+        document.addEventListener('click', function(event) {
+            const clickedElement = event.target;
+
+            // Перевіряємо, чи клікнули на кнопку
+            if(clickedElement.tagName === 'BUTTON') {
+                const action = clickedElement.dataset.action;
+
+                // Викликаємо потрібний метод відповідно до значення атрибута data-action
+                switch(action) {
+                    case 'save':
+                        save();
+                        break;
+                    case 'open':
+                        openFile();
+                        break;
+                    case 'delete':
+                        deleteFile();
+                        break;
+                    default:
+                        console.error('Невідома дія');
+                }
+            }
+        });
+
+        // Методи, які будуть викликатися при кліку на кнопки
+        function save() {
+            alert('Файл збережено');
+        }
+
+        function openFile() {
+            alert('Файл відкрито');
+        }
+
+        function deleteFile() {
+            alert('Файл видалено');
+        }
+    </script>
+</script>
 </body>
 </html>

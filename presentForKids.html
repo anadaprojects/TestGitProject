@@ -3,11 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>Presents for kids</title>
+    <title>DOM-маніпуляція з JavaScript</title>
 </head>
 <body>
-    <iframe src="index.html" frameborder="2" style="width:225px; height:200px;  margin-left:15px;
-    border:ridge 5px"></iframe>
+
+    <div id="content">
+        <h2>Hello, world!</h2>
+        <p>This is a paragraph inside the div.</p>
+    </div>
+
+    <ul class="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <div id="example">
+        <p id="paragraph">Hello, <span>world!</span></p>
+    </div>
+
+    <script>
+        // Використання методу getElementById для отримання елементу з id 'content'
+        const contentDiv = document.getElementById('content');
+
+        // Зміна вмісту елементу 'content' за допомогою innerHTML
+        contentDiv.innerHTML = '<h2>Modified Heading</h2><p>New content here.</p>';
+
+        // Використання методу querySelectorAll для вибору всіх елементів li в списку ul.list
+        const listItems = document.querySelectorAll('ul.list li');
+
+        // Зміна текстового вмісту кожного елементу li в списку за допомогою textContent
+        listItems.forEach(item => {
+            item.textContent = `New Text for ${item.textContent}`;
+        });
+
+        // Отримання елементу за допомогою getElementById
+        const paragraph = document.getElementById('paragraph');
+
+        // Використання властивостей DOM-вузлів для виводу інформації про елемент
+        console.log('innerHTML:', paragraph.innerHTML);
+        console.log('outerHTML:', paragraph.outerHTML);
+        console.log('nodeValue/data:', paragraph.firstChild.nodeValue); // або paragraph.firstChild.data
+        console.log('textContent:', paragraph.textContent);
+    </script>
+
 </body>
 </html>

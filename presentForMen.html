@@ -3,20 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>Presents for men </title>
+    <title>Робота з DOM у JavaScript: Подарунки</title>
 </head>
-<body style="background-color: bisque;">
-    <table style="border-color: black; border: 2px;">
-        <th> Таблиця подарунків</th>
-        <tr  bgcolor="pink"  valign = "top"><td>Назва</td> <td>Опис</td> <td>Ціна</td></tr>
-        <tr  valign = "top"><td>iphone 15 pro max</td> <td><img width="100px" height="100px" src="img/ASSET_MMS_118412240.webp" alt=""></td> <td>50 000 грн</td> </tr>
-        <tr  valign = "top"><td>BMW X5</td> <td><a href="https://images.app.goo.gl/1DMq7dbxJFg9enwHA">Сучасна машина</a></td> <td>1000000 000 грн</td></tr>
-        <tr  valign = "top"><td>Квартира</td> <td>Просторна квартира в центрі Києва</td> <td>99879000000 грн</td></tr>
-        <tr  valign = "top"><td>Парфуми</td> <td>Неймовірно ароматні парфуми</td> <td>1000000 000 грн</td></tr>
-       
+<body>
 
-        
-    </table>
+    <h2>Список подарунків</h2>
+    <ul id="giftList">
+        <li>Книга</li>
+        <li>Іграшка</li>
+        <li>Квіти</li>
+    </ul>
+
+    <script>
+        // Додавання нового подарунка за допомогою document.write
+        document.write('<p>Додаткові подарунки:</p>');
+        document.write('<ul>');
+        document.write('<li>Подарунковий сертифікат</li>');
+        document.write('<li>Подарункова упаковка</li>');
+        document.write('</ul>');
+
+        // Створення нового елементу <li> та вставка його у список подарунків
+        const newGift = document.createElement('li');
+        const newText = document.createTextNode('Цукерки');
+        newGift.appendChild(newText); // Додаємо текст до елементу <li>
+
+        const giftList = document.getElementById('giftList');
+        giftList.appendChild(newGift); // Додаємо новий подарунок до списку
+
+        // Заміна певного подарунка
+        const oldGift = giftList.children[0]; // Вибираємо перший елемент <li> у списку
+        const replacementGift = document.createElement('li');
+        const replacementText = document.createTextNode('Кошик з фруктами');
+        replacementGift.appendChild(replacementText); // Додаємо текст до нового елементу <li>
+
+        oldGift.replaceWith(replacementGift); // Замінюємо перший подарунок новим
+
+        // Видалення певного подарунка
+        const flowerGift = giftList.children[2]; // Вибираємо третій елемент <li> (індекс 2)
+        flowerGift.remove(); // Видаляємо третій подарунок (квіти)
+    </script>
+
 </body>
 </html>
