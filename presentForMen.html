@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Робота з DOM у JavaScript: Подарунки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        button.highlight {
+            background-color: #ffd700;
+            border-color: #ffa500;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,7 +31,7 @@
         <li>Іграшка</li>
         <li>Квіти</li>
     </ul>
-
+    
     <script>
         // Додавання нового подарунка за допомогою document.write
         document.write('<p>Додаткові подарунки:</p>');
@@ -42,6 +60,52 @@
         const flowerGift = giftList.children[2]; // Вибираємо третій елемент <li> (індекс 2)
         flowerGift.remove(); // Видаляємо третій подарунок (квіти)
     </script>
+    
+    <h2>Меню Подарунки</h2>
+    <button data-action="gift1">Подарунок 1</button>
+    <button data-action="gift2">Подарунок 2</button>
+    <button data-action="gift3">Подарунок 3</button>
+    
+    <script>
+        // Обробник події mouseover і mouseout для всього меню
+        document.addEventListener('mouseover', function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                event.target.classList.add('highlight');
+            }
+        });
 
-</body>
-</html>
+        document.addEventListener('mouseout', function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                event.target.classList.remove('highlight');
+            }
+        });
+
+        // Обробник події click для всього меню
+        document.addEventListener('click', function (event) {
+            const clickedElement = event.target;
+
+            // Перевіряємо, чи клікнули на кнопку
+            if (clickedElement.tagName === 'BUTTON') {
+                const action = clickedElement.dataset.action;
+
+                // Викликаємо потрібний метод відповідно до значення атрибута data-action
+                switch (action) {
+                    case 'gift1':
+                        alert('Ви обрали Подарунок 1');
+                        break;
+                    case 'gift2':
+                        alert('Ви обрали Подарунок 2');
+                        break;
+                    case 'gift3':
+                        alert('Ви обрали Подарунок 3');
+                        break;
+                    default:
+                        console.error('Невідома дія');
+                }
+            }
+        });
+    </script>
+    
+    </body>
+    
+    </html>
